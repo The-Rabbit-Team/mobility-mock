@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.message.FormattedMessage;
+
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
@@ -15,6 +19,7 @@ import io.vertx.ext.web.RoutingContext;
  * without any processing other than JSON:API formatting.
  */
 public class SimpleCRUDRoute extends AbstractCRUDRoute {
+	private static final Logger LOG = LogManager.getLogger(SimpleCRUDRoute.class);
 	private final String table;
 	private final Set<CRUD> allowedOperations;
 
@@ -58,10 +63,23 @@ public class SimpleCRUDRoute extends AbstractCRUDRoute {
 				.skip(offset)
 				.limit(limit)
 				.runAsync(this.mock.getConn(), JsonObject.class)
+				.whenComplete((res, ex) -> {
+					if (ex != null) {
+						LOG.error(new FormattedMessage("Failed to query DB for table {}", this.table), ex);
+						this.error(ctx, 500, "Failed to query DB", ex.toString());
+					}
+				})
 				.thenAcceptAsync(resData -> {
 					r.table(this.table) // fetches total count of elements in the table
 							.count()
 							.runAsync(this.mock.getConn(), Integer.class)
+							.whenComplete((res, ex) -> {
+								if (ex != null) {
+									LOG.error(new FormattedMessage("Failed to count rows for table {}", this.table),
+											ex);
+									this.error(ctx, 500, "Failed to count rows", ex.toString());
+								}
+							})
 							.thenAcceptAsync(resCount -> {
 								List<JsonObject> list = resData.stream().collect(Collectors.toList());
 								resData.close();
@@ -83,12 +101,12 @@ public class SimpleCRUDRoute extends AbstractCRUDRoute {
 	protected void handleUpdate(RoutingContext ctx) {
 		throw new UnsupportedOperationException("handleUpdate not implemented");
 	}
-	
+
 	@Override
 	protected void handleDelete(RoutingContext ctx) {
 		throw new UnsupportedOperationException("handleDelete not implemented");
 	}
-	
+
 	public enum CRUD {
 		CREATE, READ, UPDATE, DELETE;
 	}
