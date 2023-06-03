@@ -1,4 +1,4 @@
-package me.vinceh121.scolengomock;
+package me.vinceh121.mobilitymock;
 
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonArray;
@@ -6,14 +6,14 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 
 public abstract class AbstractRoute implements Handler<RoutingContext> {
-	protected final ScolengoMock mock;
+	protected final MobilityMock mock;
 
 	/**
 	 * @param mock  Main instance of the mocking server
 	 * @param table RethinkDB table to r/w data from/to
 	 * @param crud  Set of CRUD operations that are allowed
 	 */
-	public AbstractRoute(ScolengoMock mock) {
+	public AbstractRoute(MobilityMock mock) {
 		this.mock = mock;
 	}
 

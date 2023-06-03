@@ -1,4 +1,4 @@
-package me.vinceh121.scolengomock;
+package me.vinceh121.mobilitymock;
 
 import static com.rethinkdb.RethinkDB.r;
 
@@ -19,11 +19,11 @@ import io.vertx.core.json.jackson.VertxModule;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
-import me.vinceh121.scolengomock.SimpleCRUDRoute.CRUD;
+import me.vinceh121.mobilitymock.SimpleCRUDRoute.CRUD;
 import me.vinceh121.scolengomock.json.JsonObjectMixin;
 
-public class ScolengoMock {
-	private static final Logger LOG = LogManager.getLogger(ScolengoMock.class);
+public class MobilityMock {
+	private static final Logger LOG = LogManager.getLogger(MobilityMock.class);
 	private final Vertx vertx;
 	private final HttpServer server;
 	private final Router routerRoot, routerApi;
@@ -34,11 +34,11 @@ public class ScolengoMock {
 		RethinkDB.getResultMapper().registerModule(new VertxModule());
 		RethinkDB.getResultMapper().addMixIn(JsonObject.class, JsonObjectMixin.class);
 
-		final ScolengoMock mock = new ScolengoMock();
+		final MobilityMock mock = new MobilityMock();
 		mock.start();
 	}
 
-	public ScolengoMock() {
+	public MobilityMock() {
 		this.vertx = Vertx.vertx();
 		this.server = this.vertx.createHttpServer();
 		this.routerRoot = Router.router(this.vertx);

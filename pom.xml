@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.vinceh121</groupId>
-	<artifactId>scolengo-mock</artifactId>
+	<artifactId>mobility-mock</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Scolengo Mock</name>
+	<name>Mobility Mock</name>
 	<description>Mockup of the Skolengo mobility API</description>
 
 	<licenses>

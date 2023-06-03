@@ -1,4 +1,4 @@
-package me.vinceh121.scolengomock;
+package me.vinceh121.mobilitymock;
 
 import static com.rethinkdb.RethinkDB.r;
 
@@ -18,7 +18,7 @@ public class SimpleCRUDRoute extends AbstractCRUDRoute {
 	private final String table;
 	private final Set<CRUD> allowedOperations;
 
-	public SimpleCRUDRoute(ScolengoMock mock, String table, Set<CRUD> allowedOperations) {
+	public SimpleCRUDRoute(MobilityMock mock, String table, Set<CRUD> allowedOperations) {
 		super(mock);
 		this.table = table;
 		this.allowedOperations = allowedOperations;

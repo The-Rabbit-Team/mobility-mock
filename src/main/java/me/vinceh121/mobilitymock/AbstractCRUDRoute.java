@@ -1,4 +1,4 @@
-package me.vinceh121.scolengomock;
+package me.vinceh121.mobilitymock;
 
 import io.vertx.core.http.HttpMethod;
 import io.vertx.ext.web.RoutingContext;
@@ -11,7 +11,7 @@ public abstract class AbstractCRUDRoute extends AbstractRoute {
 	private static final String ERR_METHOD_NOT_ALLOWED = "Method not allowed",
 			ERR_METHOD_NOT_ALLOWED_DESC = "The requested method is not supported for the requested resource";
 
-	public AbstractCRUDRoute(ScolengoMock mock) {
+	public AbstractCRUDRoute(MobilityMock mock) {
 		super(mock);
 	}
 
