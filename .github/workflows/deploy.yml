@@ -31,6 +31,6 @@ jobs:
         host: ${{ secrets.DEPLOY_HOST }}
         username: ${{ secrets.DEPLOY_USERNAME }}
         key: ${{ secrets.DEPLOY_KEY }}
-        source: ${{ screts.DEPLOY_EXE}}
+        source: ${{ secrets.DEPLOY_EXE}}
         target: "/usr/local/bin"
         overwrite: true
