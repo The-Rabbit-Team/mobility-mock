@@ -20,7 +20,7 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
 import me.vinceh121.mobilitymock.SimpleCRUDRoute.CRUD;
-import me.vinceh121.scolengomock.json.JsonObjectMixin;
+import me.vinceh121.mobilitymock.json.JsonObjectMixin;
 
 public class MobilityMock {
 	private static final Logger LOG = LogManager.getLogger(MobilityMock.class);

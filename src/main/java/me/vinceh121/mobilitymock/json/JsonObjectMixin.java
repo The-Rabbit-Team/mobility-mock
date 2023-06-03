@@ -1,4 +1,4 @@
-package me.vinceh121.scolengomock.json;
+package me.vinceh121.mobilitymock.json;
 
 import java.util.Map;
 
