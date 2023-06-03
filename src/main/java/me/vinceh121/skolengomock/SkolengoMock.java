@@ -68,7 +68,9 @@ public class SkolengoMock {
 	}
 
 	public void start() {
-		this.server.listen(9200)
+		this.server
+				.listen(Integer
+						.parseInt(Objects.requireNonNull(System.getenv("MOCK_PORT"), "Missing MOCK_PORT envvar")))
 				.onSuccess(s -> LOG.info("Started! Listening on {}", s.actualPort()))
 				.onFailure(t -> LOG.error("Failed to start http server", t));
 	}
