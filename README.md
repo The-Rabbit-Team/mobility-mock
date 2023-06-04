@@ -13,4 +13,4 @@ Ce projet est un mock de l'API Skolengo. Il s'agit d'une fausse API, en lecture-
 * `MOCK_DB_URL`: L'URL d'une instance de RethinkDB (*rethinkdb://rethinkdb/database*)
 
 ## Exemple de `docker-compose.yml`
-Le fichier **[docker-compose.yml](./docker-compose.yml)** contient un exemple de fichier permetttant la liaison entre un serveur RethinkDB et ce serveur mock API.
+Le fichier **[docker-compose.yml](./docker-compose.yml)** est un exemple de liaison entre un serveur RethinkDB et ce serveur mock API.
