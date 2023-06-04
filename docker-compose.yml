@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  mobility-mock:
+    build: .
+    restart: always
+    depends_on:
+      - rethinkdb-server
+    networks:
+      - mobility-mock
+    ports:
+      - 3000:3000
+    environment:
+      MOCK_PORT: 3000
+      MOCK_DB_URL: rethinkdb://rethinkdb-server/database
+
+  rethinkdb-server:
+    image: rethinkdb:latest
+    restart: always
+    networks:
+      - mobility-mock
+    volumes:
+      - rethinkdb-storage:/data
+
+networks:
+  mobility-mock:
+
+volumes:
+  rethinkdb-storage:
