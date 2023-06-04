@@ -6,3 +6,6 @@
   <img src="https://github.com/The-Rabbit-Team/.github/blob/master/banners/mobility-mock.png?raw=true" />
 </p>
 
+# Variables d'environnement
+* `MOCK_PORT`: Port du serveur HTTP (*défaut: 3000*)
+* `MOCK_DB_URL`: URL vers une instance de RethinkDB (*rethinkdb://rethinkdb/database*)
