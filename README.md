@@ -9,8 +9,8 @@
 Ce projet est un mock de l'API Skolengo. Il s'agit d'une fausse API, en lecture-seule, permettant de tester l'implémentation du typage.
 
 ## Variables d'environnement
-* `MOCK_PORT`: Le port du serveur HTTP à utiliser (*défaut: 3000*)
-* `MOCK_DB_URL`: L'URL d'une instance de RethinkDB (*rethinkdb://rethinkdb/database*)
+* `MOCK_PORT`: Le port du serveur HTTP à utiliser. Par défaut, le port utilisé est 3000.
+* `MOCK_DB_URL`: L'URL d'une instance de RethinkDB au format *rethinkdb://rethinkdb/database*.
 
 ## Exemple de `docker-compose.yml`
 Le fichier **[docker-compose.yml](./docker-compose.yml)** est un exemple de liaison entre un serveur RethinkDB et ce serveur mock API.
