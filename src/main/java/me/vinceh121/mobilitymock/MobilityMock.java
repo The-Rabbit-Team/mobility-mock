@@ -68,9 +68,11 @@ public class MobilityMock {
 	}
 
 	public void start() {
+		final String host = System.getenv("MOCK_HOST") != null ? System.getenv("MOCK_HOST") : "0.0.0.0";
+		final int port = Integer
+						.parseInt(Objects.requireNonNull(System.getenv("MOCK_PORT"), "Missing MOCK_PORT envvar"));
 		this.server
-				.listen(Integer
-						.parseInt(Objects.requireNonNull(System.getenv("MOCK_PORT"), "Missing MOCK_PORT envvar")))
+				.listen(port, host)
 				.onSuccess(s -> LOG.info("Started! Listening on {}", s.actualPort()))
 				.onFailure(t -> LOG.error("Failed to start http server", t));
 	}
