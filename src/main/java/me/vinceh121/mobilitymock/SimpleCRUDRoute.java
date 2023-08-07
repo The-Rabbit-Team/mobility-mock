@@ -51,7 +51,7 @@ public class SimpleCRUDRoute extends AbstractCRUDRoute {
 		// does a paginated read
 		// TODO single read with path params
 		final int offset = Integer.parseInt(ctx.request().getParam("page[offset]", "0"));
-		final int limit = Integer.parseInt(ctx.request().getParam("page[limit]", "100"));
+		final int limit = Integer.parseInt(ctx.request().getParam("page[limit]", "20"));
 
 		if (limit > 100) {
 			// TODO use actual error msgs
